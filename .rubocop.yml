@@ -1,0 +1,8 @@
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - 'path/to/excluded/file.rb'
+    - 'path/to/excluded/directory/*'
+
+Style/Documentation:
+  Enabled: false

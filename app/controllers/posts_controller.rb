@@ -3,6 +3,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
+  include ActionView::Helpers::AssetTagHelper
+
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -62,6 +64,7 @@ class PostsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
+    @post
   end
 
   # Only allow a list of trusted parameters through.

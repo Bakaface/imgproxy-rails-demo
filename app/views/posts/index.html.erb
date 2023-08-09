@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-green-600"><%= notice %></p>
 
-<h1>Posts</h1>
+<div class="mt-8">
+  <h1 class="text-2xl font-bold mb-6">Posts</h1>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+  <div id="posts" class="space-y-6">
+    <% @posts.each do |post| %>
+      <%= render post %>
+      <%= link_to "Show this post", post, class: "text-blue-500 hover:text-blue-700" %>
+    <% end %>
+  </div>
+
+  <%= link_to "New post", new_post_path, class: "inline-block mt-4 py-3 px-6 text-white bg-blue-600 hover:bg-blue-700 rounded shadow" %>
 </div>
-
-<%= link_to "New post", new_post_path %>

@@ -3,7 +3,10 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  # config.active_storage.resolve_model_to_route = :imgproxy_active_storage
+  config.active_storage.resolve_model_to_route = :rails_storage_proxy
   # Settings specified here will take precedence over those in config/application.rb.
+  config.active_storage.variant_processor = :mini_magick
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
@@ -69,4 +72,8 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  config.hosts << 'local.dev'
 end
+
+Rails.application.routes.default_url_options[:host] = 'localhost:3000'

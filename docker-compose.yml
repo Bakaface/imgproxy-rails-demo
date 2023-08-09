@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build: .
+    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - .bundle:/usr/local/bundle
+      - ../ruby-imgproxy-rails__Bakaface:/ruby-imgproxy-rails__Bakaface
+    ports:
+      - "3001:3000"
+    stdin_open: true
+    container_name: imgproxy-rails-demo-web
+  imgproxy:
+    image: darthsim/imgproxy
+    ports:
+      - "8888:8080"
+    container_name: imgproxy-rails-demo-imgproxy
+    # environment:
+      # - IMGPROXY_KEY=your_key
+      # - IMGPROXY_SALT=your_salt
+      # - IMGPROXY_BASE_URL=http://your-site.com

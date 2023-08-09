@@ -10,7 +10,25 @@
   </p>
 
   <p>
-    <strong>Image:</strong>
-    <%= image_tag post.image.variant(resize_to_limit: [500, 500]) if post.image.attached? %>
+    <string>
   </p>
+
+  <% %W[rails_storage_proxy imgproxy_active_storage].each do |key| %>
+    <% ActiveStorage.resolve_model_to_route = key  %>
+    <p>
+    <strong>activestorage <%= key %></strong>
+      <br/>
+      <%= image_tag post.image.variant(resize_to_fit: [1000, 1000]) if post.image.attached? %>
+    </p>
+  <% end %>
+
+  <%# <p> %>
+  <%#   <strong>imgproxy</strong> %>
+  <%#   <br/> %>
+  <%#   <%= image_tag post.image.imgproxy_url(width: 1000, height: 1000) if post.image.attached? %> %>
+  <%# </p> %>
+  <%# <p> %>
+  <%#   <strong>Image (full) :</strong> %>
+  <%#   <%= image_tag post.image if post.image.attached? %> %>
+  <%# </p> %>
 </div>

@@ -17,6 +17,9 @@ gem 'sqlite3', '~> 1.4'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
+gem 'imgproxy'
+gem 'imgproxy-rails', path: '../ruby-imgproxy-rails__Bakaface'
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
@@ -61,12 +64,18 @@ group :development do
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem 'rack-mini-profiler'
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+  gem 'memory_profiler'
+
   gem 'rubocop', require: false
+
+  # gem 'solargraph'
+  # gem 'solargraph-rails'
+  gem 'stackprof'
 end
 
 group :test do

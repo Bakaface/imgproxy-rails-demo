@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Imgproxy.configure do |config|
   config.endpoint = 'http://localhost:8888'
   # config.key = 'your_key'
